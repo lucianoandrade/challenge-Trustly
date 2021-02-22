@@ -51,3 +51,16 @@ export const ProductPrice = styled.div`
   color: #000000;
   margin: 1rem 0;
 `;
+
+export const SelectContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  padding: 0 1rem;
+  margin-bottom: 22px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 18px;
+  color: #8d8d8d;
+`;
