@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { useLocation } from 'react-router-dom';
+import BackButton from '../Buttons/BackButton';
 import { HeaderContainer, AvatarIcon } from './styles';
 
 function Header() {
@@ -13,7 +14,7 @@ function Header() {
       case '/':
         setPageTitle('Sneakers');
         break;
-      case '/checkoutpage':
+      case '/checkout':
         setPageTitle('Checkout');
         break;
       case '/receiptpage':
@@ -26,6 +27,7 @@ function Header() {
 
   return (
     <HeaderContainer>
+      <BackButton/>
       {pageTitle}
       <AvatarIcon/>
     </HeaderContainer>

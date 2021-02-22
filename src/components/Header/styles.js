@@ -4,7 +4,7 @@ import {ReactComponent as userAvatar} from '../../assets/userAvatar.svg';
 export const HeaderContainer = styled.header`
   width: 100%;
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: center;
   font-family: Arial, Helvetica, sans-serif;
   background-color:${({ theme }) => theme.palette.header};

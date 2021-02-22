@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import ListofProducts from "../../config/constants";
-import Button from "../Button";
+import Button from "../Buttons/MainButton";
 import Select from "../Select";
 import {
   ProductsListContainer,
@@ -41,7 +41,7 @@ function ProductsList(props) {
     if (!quantity || quantity === '0') {
       alert('Please choose a quantity');
     } else {
-      history.push('/checkoutpage',{
+      history.push('/checkout',{
         id: productId,
         description: productDescription,
         size: size,
