@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ProductsListWrapper = styled.div`
+export const ProductsListContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
 
@@ -8,11 +8,10 @@ export const ProductsListWrapper = styled.div`
     height: 85vh;
     overflow-y: scroll;
     ::-webkit-scrollbar {
-      /* Chrome */
       display: none;
     }
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 `;
 

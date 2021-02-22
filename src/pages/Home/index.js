@@ -1,8 +1,8 @@
 import React from "react";
 import PageContainer from "../../components/PageContainer";
 import Filter from "../../components/Filter";
-import { Container } from "./styles";
 import ProductsList from "../../components/ProductCard";
+import { Container } from "./styles";
 
 function Home() {
   return (

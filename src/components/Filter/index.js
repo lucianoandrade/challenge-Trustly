@@ -7,6 +7,9 @@ function FilterComponent(props) {
     <Filter>
       <SearchIcon />
       <Input
+        id="inputFilter"
+        name="inputFilter"
+        type="text"
         placeholder="Search for your sneaker"
       />
     </Filter>

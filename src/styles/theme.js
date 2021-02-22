@@ -4,6 +4,7 @@ const theme = {
     black: '#000000',
     white: '#FFFFFF',
     lightGray: '#A8A8A8',
+    mainButton:'#6b8067'
   },
 };
 export default theme;
