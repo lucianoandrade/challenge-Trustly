@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import ListofProducts from "../../config/constants";
 import Button from "../Button";
 import Select from "../Select";
@@ -7,20 +8,56 @@ import {
   ProductCard,
   ProductDescription,
   ProductPrice,
-  SelectContainer
+  SelectContainer,
+  SelectName
 } from './styles';
 
 function ProductsList(props) {
-  const sizes = [36, 37, 38, 39, 40, 41, 42, 43];
+  
+  const {valueFilter} = props;
+  const [size, setSize] = useState('36');
+  const [quantity, setQuantity] = useState('0');
   const [products, setProducts] = useState([]);
-    useEffect(() => {
-        ListofProducts.get().then(response => setProducts(response.data.results));
-    },[]);
+  const sizes = [36, 37, 38, 39, 40, 41, 42, 43];
+  const history = useHistory();
+  
+  useEffect(() => {
+      ListofProducts.get().then(response => setProducts(response.data.results));
+  },[]);
+  
+  const filtered =
+  products.filter((item) =>
+    item.description.toLowerCase().includes(valueFilter.toLowerCase()),
+  );
 
-    return (
+  const handleChosenProduct = (
+    productId,
+    productPrice,
+    productDescription,
+    productThumbUrl,
+    productmMaxresURL,
+    productColor,
+  ) => {
+    if (!quantity || quantity === '0') {
+      alert('Please choose a quantity');
+    } else {
+      history.push('/checkoutpage',{
+        id: productId,
+        description: productDescription,
+        size: size,
+        quantity: quantity,
+        price: productPrice,
+        color: productColor,
+        thumbnailURL: productThumbUrl,
+        MaxresURL: productmMaxresURL,
+      });
+    }
+  };
+
+  return (
     <ProductsListContainer>
-      {products &&
-        products.map((product) => {
+      {filtered &&
+        filtered.map((product) => {
           return (
             <ProductCard key={product.id}>
               <img
@@ -28,10 +65,13 @@ function ProductsList(props) {
                 alt={`Thumbnail ${product.description}`}
               />
               <ProductDescription>{product.description}</ProductDescription>
-              <ProductPrice>{`$ ${product.price}`}</ProductPrice>
               <SelectContainer>
-                <p>Size</p>
-                <Select name="sizes" id="sizes">
+                <SelectName>Size</SelectName>
+                <Select 
+                  name="sizes" 
+                  id="sizes" 
+                  onChange={(e) => setSize(e.target.value)}
+                >
                   {sizes.map((size) => {
                     return (
                       <option key={size} value={size}>
@@ -40,18 +80,34 @@ function ProductsList(props) {
                     );
                   })}
                 </Select>
-                <p>Quantity</p>
-                <Select name="quantity" id="quantity">
+                <SelectName>Quantity</SelectName>
+                <Select 
+                  name="quantity" 
+                  id="quantity" 
+                  onChange={(e) => setQuantity(e.target.value)}
+                >
                   <option value="0">0</option>
                   <option value="1">1</option>
                 </Select>
               </SelectContainer>
-              <Button>
+              <ProductPrice>{`$ ${product.price}`}</ProductPrice>
+              <Button
+                onClick={() =>
+                  handleChosenProduct(
+                    product.id,
+                    product.price,
+                    product.description,
+                    product.thumbnailURL,
+                    product.maxresURL,
+                    product.color,
+                  )
+                }
+              >
                 Add to cart
               </Button>
             </ProductCard>
           );
-        })}
+      })}
     </ProductsListContainer>
   );
 }

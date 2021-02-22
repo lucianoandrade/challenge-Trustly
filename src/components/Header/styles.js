@@ -18,6 +18,7 @@ export const HeaderContainer = styled.header`
   @media screen and (max-width: 600px){
     background-color:${({ theme }) => theme.palette.white};
     font-size: 0;
+    margin-bottom: 20px;
   }
 `;
 

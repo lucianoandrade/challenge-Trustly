@@ -11,6 +11,7 @@ function FilterComponent(props) {
         name="inputFilter"
         type="text"
         placeholder="Search for your sneaker"
+        onChange={e => props.setValueFilter(e.target.value)}
       />
     </Filter>
   );

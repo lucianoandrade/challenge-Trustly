@@ -4,7 +4,9 @@ const theme = {
     black: '#000000',
     white: '#FFFFFF',
     lightGray: '#A8A8A8',
-    mainButton:'#6b8067'
+    alternativeGray: '#8D8D8D',
+    mainButton:'#6b8067',
+    borderLineSelect: '#E8E8E8'
   },
 };
 export default theme;

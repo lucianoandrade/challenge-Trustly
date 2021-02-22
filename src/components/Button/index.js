@@ -1,9 +1,8 @@
 import React from "react";
 import { Button } from "./styles.js";
 
-const ButtonComponet = props => {
+function ButtonComponet (props) {
   const {children, background="default"} = props;
-
   return (
     <>
       <Button

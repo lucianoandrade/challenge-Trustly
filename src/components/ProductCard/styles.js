@@ -3,10 +3,11 @@ import styled from 'styled-components';
 export const ProductsListContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-
+  margin: 0 auto;
+  max-width: 1000px;
+  width: 100%;
   @media (max-width: 1024px) {
-    height: 85vh;
-    overflow-y: scroll;
+    overflow-y: auto;
     ::-webkit-scrollbar {
       display: none;
     }
@@ -20,47 +21,39 @@ export const ProductCard = styled.div`
   flex-direction: column;
   align-items: center;
   box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.05);
-  margin-bottom: 3rem;
-  max-width: 376px;
-  margin: 0 auto;
-
-  img {
-    @media (max-width: 376px) {
-      width: 95vw;
-    }
-  }
+  max-width: 297px;
+  margin: 0 auto 40px;
+  padding: 10px;
 `;
 
 export const ProductDescription = styled.div`
-  margin: 1rem 0;
-  font-style: normal;
-  font-weight: normal;
+  margin: 20px 0;
   font-size: 20px;
   line-height: 18px;
-
   text-align: center;
 `;
 
 export const ProductPrice = styled.div`
-  font-style: normal;
   font-weight: 600;
   font-size: 21px;
   line-height: 18px;
-
   text-align: center;
-  color: #000000;
-  margin: 1rem 0;
+  color:${({ theme }) => theme.palette.black};
+  margin-bottom: 10px;
 `;
 
 export const SelectContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 90%;
-  padding: 0 1rem;
-  margin-bottom: 22px;
-  font-style: normal;
-  font-weight: normal;
+  width: 100%;
+  padding: 0 20px;
+  margin-bottom: 20px;
   font-size: 12px;
   line-height: 18px;
-  color: #8d8d8d;
+  color: ${({ theme }) => theme.palette.alternativeGray};
+`;
+
+export const SelectName = styled.p`
+  font-size: 12px;
+  line-height: 18px;
 `;

@@ -5,10 +5,11 @@ function SelectComponent(props) {
   const {
     id,
     name,
-    children
+    children,
+    onChange
   } = props; 
   return (
-      <Select name={name} id={id}>
+      <Select name={name} id={id} onChange={onChange}>
         {children}
       </Select>
   );
