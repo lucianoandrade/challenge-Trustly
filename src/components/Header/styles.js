@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {ReactComponent as userAvatar} from '../../assets/images/userAvatar.svg';
+import {ReactComponent as userAvatar} from '../../assets/userAvatar.svg';
 
 export const HeaderContainer = styled.header`
   width: 100%;
@@ -13,6 +13,7 @@ export const HeaderContainer = styled.header`
   text-align: center;
   line-height: 30px;
   padding: 26px 0;
+  margin-bottom: 60px;
 
   @media screen and (max-width: 600px){
     background-color:${({ theme }) => theme.palette.white};

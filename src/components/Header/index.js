@@ -8,9 +8,8 @@ function Header() {
 
   useEffect(() => {
     const location = locationUrl.pathname;
-    const expr = location;
 
-    switch (expr) {
+    switch (location) {
       case '/':
         setPageTitle('Sneakers');
         break;
