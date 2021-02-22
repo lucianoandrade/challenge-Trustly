@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ListofProducts from "../../config/constants";
+import PageContainer from "../../components/PageContainer";
 
 function Home() {
   const [products, setProducts] = useState([]);
@@ -7,12 +8,14 @@ function Home() {
       ListofProducts.get().then(response => setProducts(response.data.results));
   },[]);
   return (
-    <div>{products.map((item, index) => (
-      <p key={index}>
-        {`${item.description} - ${item.color} - ${item.price}`}
-      </p>
-    ))}
-    </div>
+    <PageContainer>
+      <div>{products.map((item, index) => (
+        <p key={index}>
+          {`${item.description} - ${item.color} - ${item.price}`}
+        </p>
+      ))}
+      </div>
+    </PageContainer>
   );
 };
 
