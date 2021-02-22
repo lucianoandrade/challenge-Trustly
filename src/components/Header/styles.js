@@ -25,5 +25,5 @@ export const HeaderContainer = styled.header`
 export const AvatarIcon = styled(userAvatar)`
   position: absolute;
   right: 0;
-  margin-right: 5%;
+  margin-right: 10%;
 `;

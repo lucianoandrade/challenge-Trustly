@@ -1,12 +1,11 @@
 import PageContainer from "../../components/PageContainer";
-import { Container } from "./styles";
+import LineStage from "../../components/Stages";
 
 function Checkout(props) {
+  console.log(props)
   return (
     <PageContainer>
-      <Container>
-        <div>Sneaker Product</div>
-      </Container>
+      <LineStage />
     </PageContainer>
   );
 };
