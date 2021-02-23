@@ -7,7 +7,7 @@ export const Button = styled.button`
   width: 100%;
   background-color: ${({ theme }) => theme.palette.mainButton};
   color:  ${({ theme }) => theme.palette.white};
-  padding: 0.6rem 0;
+  padding: 5px 0;
   margin-bottom: 10px;
   font-size: 14px;
   line-height: 19px;

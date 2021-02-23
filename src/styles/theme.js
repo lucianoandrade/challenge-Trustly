@@ -5,8 +5,10 @@ const theme = {
     white: '#FFFFFF',
     lightGray: '#A8A8A8',
     alternativeGray: '#8D8D8D',
+    otherGray: '#A5A5A5', 
     mainButton:'#6b8067',
     borderLineSelect: '#E8E8E8',
+    box: '#F7F7F7',
     destaq: '#61CB46'
   },
 };
