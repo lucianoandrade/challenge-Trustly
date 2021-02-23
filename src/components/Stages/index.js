@@ -1,30 +1,35 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import {
   LineStage, 
   Steps, 
   Step, 
-  Phase, 
-  PhaseTitle,
+  PhaseCart,
+  PhasePayment,
+  PhaseReceipt, 
+  PhaseTitle
 } from './styles';
 
-function StageComponent() { 
+function StageComponent() {
+  const locationUrl = useLocation(); 
+  const location = locationUrl.pathname;
   return (
     <>
-        <LineStage />
-        <Steps>
-          <Step>
-            <Phase/>
-            <PhaseTitle>Cart</PhaseTitle>
-          </Step>
-          <Step id="center">
-            <Phase/>
-            <PhaseTitle>Payment options</PhaseTitle>
-          </Step>
-          <Step>
-            <Phase/>
-            <PhaseTitle>Receipt</PhaseTitle>
-          </Step>
-        </Steps>
+      <LineStage />
+      <Steps>
+        <Step>
+          <PhaseCart location={location}/>
+          <PhaseTitle>Cart</PhaseTitle>
+        </Step>
+        <Step>
+          <PhasePayment location={location}/>
+          <PhaseTitle>Payment options</PhaseTitle>
+        </Step>
+        <Step>
+          <PhaseReceipt location={location}/>
+          <PhaseTitle>Receipt</PhaseTitle>
+        </Step>
+      </Steps>
     </>
   );
 }

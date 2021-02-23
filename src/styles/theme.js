@@ -6,7 +6,8 @@ const theme = {
     lightGray: '#A8A8A8',
     alternativeGray: '#8D8D8D',
     mainButton:'#6b8067',
-    borderLineSelect: '#E8E8E8'
+    borderLineSelect: '#E8E8E8',
+    destaq: '#61CB46'
   },
 };
 export default theme;

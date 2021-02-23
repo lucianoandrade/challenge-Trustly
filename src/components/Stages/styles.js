@@ -33,10 +33,29 @@ export const Step = styled.div`
     align-items: center;
 `;
 
-export const Phase = styled.div`
+export const PhaseCart = styled.div`
     height: 15px;
     width: 15px;
-    background-color: #61CB46;
+    background-color: ${props => props.theme.palette.destaq};
+    border-radius: 100%;
+    position: absolute;
+    top: 135px;
+`;
+
+export const PhasePayment = styled.div`
+    height: 15px;
+    width: 15px;
+    background-color: ${props => props.theme.palette.destaq};
+    border-radius: 100%;
+    position: absolute;
+    top: 135px;
+`;
+
+export const PhaseReceipt = styled.div`
+    height: 15px;
+    width: 15px;
+    background-color: ${props => props.location === "review-and-confirmation" ? 
+        props.theme.palette.destaq : props.theme.palette.borderLineSelect };
     border-radius: 100%;
     position: absolute;
     top: 135px;
