@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import PaymentMethods from '../PaymentMethods';
 import Button from '../Buttons/MainButton';
 import {
@@ -21,17 +21,39 @@ import {
 
 function CheckoutDesktop(props) {
   const { product } = props
-
-  const history = useHistory();
   const [chosenPaymentMethod, setChosenPaymentMethod] = useState('onlineBanks');
+
+  const createTransaction = {
+    accessId: 'D61EC9BAF0BB369B9438',
+    merchantId: '1004314986',
+    metadata: { demo: 'enabled' },
+    currency: 'USD',
+    paymentType: 'Deferred',
+    amount: `${product.price}`,
+    description: `luciano.andrade1610@gmail.com`,
+    merchantReference: '123456',
+    returnUrl: '#success',
+    cancelUrl: '#cancel'
+  }
 
   const goToSelectBankPage = () => {
     if (chosenPaymentMethod === 'onlineBanks') {
-      history.push('/selectbankpage');
+      window.PayWithMyBank.establish(createTransaction);
     } else {
       alert('Unsupported payment method, please use "Online banking"');
     }
   };
+
+  window.PayWithMyBank.addPanelListener(function(command, event) {
+    if (command === 'event' && event.type === 'new_location') {
+      if (event.data.indexOf('#success') === 0) {
+        alert('success!');
+      } else {
+        alert('cancel!');
+      }
+      return false;
+    }
+  });
 
   const handlePaymentMethod = (paymentMethod) => {
     setChosenPaymentMethod(paymentMethod);
