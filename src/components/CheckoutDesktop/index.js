@@ -2,10 +2,10 @@ import React, {useState} from 'react';
 import { useHistory } from 'react-router-dom';
 import PaymentMethods from '../PaymentMethods';
 import Button from '../Buttons/MainButton';
+import ImageProduct from '../DestaqImage';
+import PaymentBox from '../PaymentBox';
 import {
-  Container, 
-  ImageProduct, 
-  PaymentBox,
+  Container,
   InfosProduct,
   InfoLeft,
   ColumnTitle,

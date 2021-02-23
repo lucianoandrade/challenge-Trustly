@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {ReactComponent as arrowLeft} from '../../../assets/arrowLeft.svg';
+import {ReactComponent as arrowLeft} from '../../../assets/images/arrowLeft.svg';
 
 export const BackButtonContainer = styled.button`
   display: flex;

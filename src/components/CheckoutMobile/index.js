@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { useHistory } from 'react-router-dom';
 import PaymentMethods from '../PaymentMethods';
 import Button from '../../components/Buttons/MainButton';
-import DeleteIcon from '../../assets/deleteIcon.svg';
+import DeleteIcon from '../../assets/images/deleteIcon.svg';
 import {
   CheckoutWrapper,
   CheckoutTittle,

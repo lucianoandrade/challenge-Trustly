@@ -29,11 +29,12 @@ export const ColumnTitle = styled.p`
 `;
 
 export const DescriptionPrduct = styled.div`
+  margin-bottom: 80px;
   p {
     &:first-child {
       font-size: 16px;
       line-height: 20px;
-      color: ${({ theme }) => theme.palette.black}
+      color: ${({ theme }) => theme.palette.black};
     }
     &:not(:first-child) {
       font-size: 16px;
@@ -48,7 +49,9 @@ export const InfoRight = styled.div`
   flex-direction: column;
 `;
 
-export const DescriptionDelivery = styled.div`
+export const OnliBanking = styled.div`
+  display: flex;
+  margin-top: 9px;
   p {
     font-size: 16px;
     line-height: 153.3%;
@@ -84,14 +87,15 @@ export const Total = styled.span`
   color: ${({ theme }) => theme.palette.black}
 `;
 
-export const PaymentTitle = styled.p`
-  font-size: 20px;
-  line-height: 30px;
-  margin-bottom: 20px;
-  color: ${({ theme }) => theme.palette.black}
+export const Next = styled.div`
+  width: 160px;
+  margin-top: 110px;
+  margin-left: auto;
 `;
 
-export const Next = styled.div`
-  width: 220px;
-  margin-left: auto;
+export const Banck = styled.div`
+  img {
+    width: 47px;
+    height: 47px;
+  }
 `;

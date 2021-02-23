@@ -1,7 +1,7 @@
 import React from 'react';
-import onlineBanks from '../../assets/onlineBanks.svg';
-import cardPayment from '../../assets/cardPayment.svg';
-import applePay from '../../assets/applePay.svg';
+import onlineBanks from '../../assets/images/onlineBanks.svg';
+import cardPayment from '../../assets/images/cardPayment.svg';
+import applePay from '../../assets/images/applePay.svg';
 
 import {
   PaymentMethodWrapper,

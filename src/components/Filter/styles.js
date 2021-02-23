@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {ReactComponent as search} from '../../assets/searchIcon.svg';
+import {ReactComponent as search} from '../../assets/icons/searchIcon.svg';
 
 export const Filter = styled.div`
   display: flex;

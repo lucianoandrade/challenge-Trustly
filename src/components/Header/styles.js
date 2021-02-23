@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {ReactComponent as userAvatar} from '../../assets/userAvatar.svg';
+import {ReactComponent as userAvatar} from '../../assets/images/userAvatar.svg';
 
 export const HeaderContainer = styled.header`
   width: 100%;
