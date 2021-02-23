@@ -14,7 +14,10 @@ function PaymentMethods(props) {
   return (
     <>
       <PaymentMethodWrapper>
-        <PaymentMethodItem autoFocus>
+        <PaymentMethodItem 
+          autoFocus
+          onClick={() => props.handlePaymentMethod('onlineBanks')}
+        >
           <div>
             <p>Online banking</p>
             <DiscountAdd>SAVE 10%</DiscountAdd>
@@ -24,7 +27,9 @@ function PaymentMethods(props) {
           </OnlineBanksBanner>
         </PaymentMethodItem>
 
-        <PaymentMethodItem>
+        <PaymentMethodItem
+          onClick={() => props.handlePaymentMethod('cardPayment')}
+        >
           <div>
             <p>Card payment</p>
           </div>
@@ -33,7 +38,9 @@ function PaymentMethods(props) {
           </div>
         </PaymentMethodItem>
 
-        <PaymentMethodItem>
+        <PaymentMethodItem
+          onClick={() => props.handlePaymentMethod('applePay')}
+        >
           <div>
             <p>Apple pay</p>
           </div>
