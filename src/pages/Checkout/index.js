@@ -1,4 +1,3 @@
-import React from 'react';
 import PageContainer from "../../components/PageContainer";
 import LineStage from "../../components/Stages";
 import CheckoutDesktop from "../../components/CheckoutDesktop";

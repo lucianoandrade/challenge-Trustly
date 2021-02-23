@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useState} from 'react';
+import { useHistory } from 'react-router-dom';
 import PaymentMethods from '../PaymentMethods';
 import Button from '../../components/Buttons/MainButton';
 import DeleteIcon from '../../assets/deleteIcon.svg';
@@ -16,6 +17,26 @@ import {
 
 function CheckoutMobile(props) {
   const { product } = props
+
+  const history = useHistory();
+  const [chosenPaymentMethod, setChosenPaymentMethod] = useState('onlineBanks');
+  
+  const deleteProduct = () => {
+    history.push('/');
+  };
+
+  const goToSelectBankPage = () => {
+    if (chosenPaymentMethod === 'onlineBanks') {
+      history.push('/selectbankpage');
+    } else {
+      alert('Unsupported payment method, please use "Online banking"');
+    }
+  };
+
+  const handlePaymentMethod = (paymentMethod) => {
+    setChosenPaymentMethod(paymentMethod);
+  };
+
   return (
       <CheckoutWrapper>
         <CheckoutTittle>Checkout</CheckoutTittle>
@@ -29,7 +50,7 @@ function CheckoutMobile(props) {
             <p>Delivery included</p>
           </Total>
 
-          <Delete>
+          <Delete onClick={deleteProduct}>
             <img
               src={DeleteIcon}
               alt="Delete buttom"
@@ -56,12 +77,10 @@ function CheckoutMobile(props) {
           </Delivery>
         </ProductCard>
 
-        <PaymentMethods />
+        <PaymentMethods handlePaymentMethod={handlePaymentMethod} />
 
-        <Button 
-          // onClick={goToSelectBankPage}
-        >
-            Continue
+        <Button onClick={goToSelectBankPage}>
+          Continue
         </Button>
       </CheckoutWrapper>
   );

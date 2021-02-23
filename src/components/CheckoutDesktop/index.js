@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useState} from 'react';
+import { useHistory } from 'react-router-dom';
 import PaymentMethods from '../PaymentMethods';
 import Button from '../Buttons/MainButton';
 import {
@@ -20,6 +21,22 @@ import {
 
 function CheckoutDesktop(props) {
   const { product } = props
+
+  const history = useHistory();
+  const [chosenPaymentMethod, setChosenPaymentMethod] = useState('onlineBanks');
+
+  const goToSelectBankPage = () => {
+    if (chosenPaymentMethod === 'onlineBanks') {
+      history.push('/selectbankpage');
+    } else {
+      alert('Unsupported payment method, please use "Online banking"');
+    }
+  };
+
+  const handlePaymentMethod = (paymentMethod) => {
+    setChosenPaymentMethod(paymentMethod);
+  };
+
   return (
     <Container>
       <ImageProduct>
@@ -56,9 +73,9 @@ function CheckoutDesktop(props) {
         <PaymentTitle>
           Select your payment method
         </PaymentTitle>
-        <PaymentMethods/>
+        <PaymentMethods handlePaymentMethod={handlePaymentMethod} />
         <Next>
-          <Button>Continue</Button>
+          <Button onClick={goToSelectBankPage}>Continue</Button>
         </Next>
       </PaymentBox>
     </Container>
