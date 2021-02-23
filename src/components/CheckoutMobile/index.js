@@ -41,21 +41,20 @@ function CheckoutMobile(props) {
   const goToSelectBankPage = () => {
     if (chosenPaymentMethod === 'onlineBanks') {
       window.PayWithMyBank.establish(createTransaction);
+      window.PayWithMyBank.addPanelListener(function(command, event) {
+        if (command === 'event' && event.type === 'new_location') {
+          if (event.data.indexOf('#success') === 0) {
+            history.push('/receipt');
+          } else {
+            alert('Transaction canceled');
+          }
+          return false;
+        }
+      });
     } else {
       alert('Unsupported payment method, please use "Online banking"');
     }
   };
-
-  window.PayWithMyBank.addPanelListener(function(command, event) {
-    if (command === 'event' && event.type === 'new_location') {
-      if (event.data.indexOf('#success') === 0) {
-        alert('success!');
-      } else {
-        alert('cancel!');
-      }
-      return false;
-    }
-  });
 
   const handlePaymentMethod = (paymentMethod) => {
     setChosenPaymentMethod(paymentMethod);

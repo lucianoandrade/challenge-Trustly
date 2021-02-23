@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-// import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import PaymentMethods from '../PaymentMethods';
 import Button from '../Buttons/MainButton';
 import {
@@ -20,7 +20,8 @@ import {
 } from './styles';
 
 function CheckoutDesktop(props) {
-  const { product } = props
+  const { product } = props;
+  const history = useHistory();
   const [chosenPaymentMethod, setChosenPaymentMethod] = useState('onlineBanks');
 
   const createTransaction = {
@@ -39,21 +40,20 @@ function CheckoutDesktop(props) {
   const goToSelectBankPage = () => {
     if (chosenPaymentMethod === 'onlineBanks') {
       window.PayWithMyBank.establish(createTransaction);
+      window.PayWithMyBank.addPanelListener(function(command, event) {
+        if (command === 'event' && event.type === 'new_location') {
+          if (event.data.indexOf('#success') === 0) {
+            history.push('/receipt');
+          } else {
+            alert('Transaction canceled');
+          }
+          return false;
+        }
+      });
     } else {
       alert('Unsupported payment method, please use "Online banking"');
     }
   };
-
-  window.PayWithMyBank.addPanelListener(function(command, event) {
-    if (command === 'event' && event.type === 'new_location') {
-      if (event.data.indexOf('#success') === 0) {
-        alert('success!');
-      } else {
-        alert('cancel!');
-      }
-      return false;
-    }
-  });
 
   const handlePaymentMethod = (paymentMethod) => {
     setChosenPaymentMethod(paymentMethod);

@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
+import { GlobalContext } from '../../components/GlobalContext';
 import { useHistory } from 'react-router-dom';
 import ListofProducts from "../../config/constants";
 import Button from "../Buttons/MainButton";
@@ -15,6 +16,7 @@ import {
 function ProductsList(props) {
   
   const {valueFilter} = props;
+  const allContext = useContext(GlobalContext);
   const [size, setSize] = useState('36');
   const [quantity, setQuantity] = useState('0');
   const [products, setProducts] = useState([]);
@@ -23,12 +25,14 @@ function ProductsList(props) {
   
   useEffect(() => {
       ListofProducts.get().then(response => setProducts(response.data.results));
-  },[]);
-  
+      allContext.setAllProducts(products);
+  },[allContext, products]);
+
   const filtered =
-  products.filter((item) =>
-    item.description.toLowerCase().includes(valueFilter.toLowerCase()),
-  );
+    allContext.allProducts &&
+    allContext.allProducts.filter((item) =>
+      item.description.toLowerCase().includes(valueFilter.toLowerCase()),
+    );
 
   const handleChosenProduct = (
     productId,
@@ -41,7 +45,7 @@ function ProductsList(props) {
     if (!quantity || quantity === '0') {
       alert('Please choose a quantity');
     } else {
-      history.push('/checkout',{
+      allContext.setChosenProduct({
         id: productId,
         description: productDescription,
         size: size,
@@ -51,6 +55,7 @@ function ProductsList(props) {
         thumbnailURL: productThumbUrl,
         MaxresURL: productmMaxresURL,
       });
+      history.push('/checkout');
     }
   };
 

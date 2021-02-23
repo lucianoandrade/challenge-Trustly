@@ -8,7 +8,7 @@ function BackButton() {
   const location = locationUrl.pathname;
 
   const handleBackButton = () => {
-    if (location !== '/receiptpage') {
+    if (location !== '/receipt') {
       history.goBack();
     } else {
       history.push('/');
@@ -17,8 +17,7 @@ function BackButton() {
 
   const showBackButton =
     location === '/checkout' ||
-    location === '/receiptpage' ||
-    location === '/selectbankpage' ? (
+    location === '/receipt' ? (
       <BackButtonContainer onClick={handleBackButton}>
         <ArrowLeftIcon/>
         <TitleButton>Back</TitleButton>
