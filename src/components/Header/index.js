@@ -17,7 +17,7 @@ function Header() {
       case '/checkout':
         setPageTitle('Checkout');
         break;
-      case '/receiptpage':
+      case '/receipt':
         setPageTitle('Review and Confirmation');
         break;
       default:

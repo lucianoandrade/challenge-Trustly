@@ -54,7 +54,7 @@ export const PhasePayment = styled.div`
 export const PhaseReceipt = styled.div`
     height: 15px;
     width: 15px;
-    background-color: ${props => props.location === "review-and-confirmation" ? 
+    background-color: ${props => props.location === "/receipt" ? 
         props.theme.palette.destaq : props.theme.palette.borderLineSelect };
     border-radius: 100%;
     position: absolute;
